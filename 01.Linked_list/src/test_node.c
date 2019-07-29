@@ -12,19 +12,14 @@ int main() {
   node2->value = 5;
   node2->next = NULL;
 
-  node1->next = node2;
+  Node *node3 = (Node *)malloc(sizeof(Node));
+  node3->value = 9;
+  node3->next = NULL;
 
-  Node *temp = node1;
-  while (1) {
-    printf("%d ", temp->value);
-    if (temp->next == NULL) {
-      printf("\n");
-      break;
-    } else {
-      temp = temp->next;
-    }
-  }
-  // printf("%d \n", node->value);
+  addList(node1);
+  addList(node2);
+  addList(node3);
+  printList();
 
   return 0;
 }

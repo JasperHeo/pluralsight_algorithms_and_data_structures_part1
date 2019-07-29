@@ -1,13 +1,13 @@
-all: test
-
+CFLAGS=-Wall -g
 OBJ_DIR=./out
 SRC_DIR=./src
 SRC= $(wildcard src/*.c)
 #OBJ= $(SRC:%.c=$(OBJ_DIR)/%.o)
 OBJ= $(SRC:%.c=%.o)
 
+all: test
 test: $(OBJ)
-	gcc -Wall $^ -o $@
+	gcc $(CFLAGS) $^ -o $@
 
 depend: .depend
 
@@ -20,7 +20,7 @@ depend: .depend
 #%(OBJ_DIR)/%.o : %.c
 %.o : %.c
 #	mkdir -p $(OBJ_DIR)
-	gcc -Wall -c $< -o $@
+	gcc $(CFLAGS) -c $< -o $@
 
 clean:
 	#rm -f $(OJB_DIR) test .depend
